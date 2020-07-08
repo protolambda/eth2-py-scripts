@@ -39,4 +39,6 @@ async def fetch_state(output_name: str, slot: Optional[Slot]):
 
         print('done!')
 
-trio.run(fetch_state, 'my_state.ssz', 61061)
+slot = Slot(61060)
+slot = compute_start_slot_at_epoch(compute_epoch_at_slot(slot) + 1)
+trio.run(fetch_state, 'my_state.ssz', slot)

@@ -21,19 +21,19 @@ att_marks = {
 print(f'slot: {state.slot}')
 
 def fmt_flag(flags: int) -> str:
-    return '\t'.join([('y' if has_markers(flags, v) else 'n') for v in att_marks.values()])
+    return '\t\t\t'.join([('y' if has_markers(flags, v) else 'n') for v in att_marks.values()])
 
-print('index\tinclusion delay\t'+'\t'.join(att_marks.keys()))
+print('index\tdelay\t'+'\t'.join(att_marks.keys()))
 
 inactives = []
 non_targets = []
 
 for i, st in enumerate(process.statuses):
     if not st.active:
-        print(f'{i}\tnot active')
+        print(f'{i}\t\t\tnot active')
         continue
     p = fmt_flag(st.flags)
-    print(f'{i}\t{st.inclusion_delay}\t{p}')
+    print(f'{i}\t\t\t{st.inclusion_delay}\t\t\t{p}')
     if 'y' not in p:
         inactives.append(i)
     if not (has_markers(st.flags, FLAG_CURR_TARGET_ATTESTER) or has_markers(st.flags, FLAG_PREV_TARGET_ATTESTER)):
