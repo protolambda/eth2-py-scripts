@@ -1,8 +1,6 @@
-eth2>=0.0.5
-remerkleable==0.1.16
-eth2spec==0.12.1
-eth2fastspec==0.0.3
-py_ecc==4.0.0
+remerkleable==0.1.18
+eth2spec==1.0.0
+py_ecc==5.0.0
 trio>=0.15.0,<0.16.0
 httpx>=0.12.1,<0.13.0
 lru-dict==1.1.6

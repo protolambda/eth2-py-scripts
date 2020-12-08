@@ -11,8 +11,7 @@ timeout = httpx.Timeout(connect_timeout=25.0,
                         write_timeout=5.0,
                         pool_timeout=10.0)
 
-# Protected API, use your own :^)
-eth2_rpc = 'http://ec2-3-236-142-211.compute-1.amazonaws.com:4000'
+eth2_rpc = 'http://localhost:4000'
 
 
 async def fetch_state(output_name: str, slot: Optional[Slot]):
@@ -39,6 +38,5 @@ async def fetch_state(output_name: str, slot: Optional[Slot]):
 
         print('done!')
 
-slot = Slot(61060)
-slot = compute_start_slot_at_epoch(compute_epoch_at_slot(slot) + 1)
-trio.run(fetch_state, 'my_state.ssz', slot)
+slot = Slot(252671)
+trio.run(fetch_state, 'recent_medalla.ssz', slot)
